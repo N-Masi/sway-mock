@@ -28,8 +28,10 @@ export default function LeaderDropdown(props: LeaderDropdownProps) {
         const res = await fetch('/api/sway/getProfiles?role=LEADER');
         const data = await res.json();
         const profilesArray = Array.isArray(data.data.profiles) ? data.data.profiles : [];
-        console.log(profilesArray)
-        props.setLeaders(profilesArray);
+        const validProfiles = profilesArray.filter((profile: any) =>
+          profile.profileViewpointGroupRels.some((rel: any) => rel.viewpointGroup !== null)
+        );
+        props.setLeaders(validProfiles);
       } catch (error) {
         console.error('Error fetching leaders', error);
       } finally {

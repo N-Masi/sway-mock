@@ -29,6 +29,11 @@ export async function GET(request: NextRequest) {
                 isCurrent
                 viewpointGroupId
             }
+            slugs {
+              id
+              slug
+              viewpointGroupId
+            }
             totalUniqueSupporters
             totalUniqueVoters
             profileViewpointGroupRels {

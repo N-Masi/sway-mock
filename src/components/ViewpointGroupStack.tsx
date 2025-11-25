@@ -43,7 +43,7 @@ export default function ViewpointGroupStack(props: ViewpointGroupStackProps) {
     return (
         <Stack spacing={2} sx={{marginRight: 3, marginTop: 3}}>
             {viewpointGroups.map((viewpointGroup: ViewpointGroup) => (
-                <ViewpointGroupCard key={viewpointGroup.id} viewpointGroup={viewpointGroup} />
+                <ViewpointGroupCard key={viewpointGroup.id} viewpointGroup={viewpointGroup} selectedLeader={props.selectedLeader}/>
             ))}
         </Stack>
     )

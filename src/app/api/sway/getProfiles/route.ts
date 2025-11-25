@@ -17,32 +17,69 @@ export async function GET(request: NextRequest) {
   let query;
   let queryVars;
   if (role) {
+    // query = `
+    //     query GetLeaderProfiles($profileRole: ProfileViewpointGroupRelTypesEnum) {
+    //       profiles(
+    //         where: {
+    //           profileViewpointGroupRels: {
+    //             type: { _eq: $profileRole }
+    //           }
+    //         }
+    //       ) {
+    //         id
+    //         displayNameShort
+    //         displayNameLong
+    //         bio
+    //         avatarMedia {
+    //           id
+    //           link
+    //         }
+    //         profileViewpointGroupRels {
+    //           viewpointGroup {
+    //             id
+    //             title
+    //           }
+    //         }
+    //       }
+    //     }
+    // `;
     query = `
-        query GetLeaderProfiles($profileRole: ProfileViewpointGroupRelTypesEnum) {
-          profiles(
-            where: {
-              profileViewpointGroupRels: {
-                type: { _eq: $profileRole }
-              }
+      query GetLeaderProfiles($profileRole: ProfileViewpointGroupRelTypesEnum) {
+        profiles(
+          where: {
+            profileViewpointGroupRels: {
+              type: { _eq: $profileRole }
             }
-          ) {
+          }
+        ) {
+          id
+          displayNameShort
+          displayNameLong
+          bio
+          avatarMedia {
             id
-            displayNameShort
-            displayNameLong
-            bio
-            avatarMedia {
-              id
-              link
+            link
+          }
+          profileViewpointGroupRels(
+            where: {
+              type: { _eq: $profileRole }
             }
-            profileViewpointGroupRels {
-              viewpointGroup {
+          ) 
+            {
+            viewpointGroup {
+              id
+              title
+              currentSlug {
                 id
-                title
+                slug
+                viewpointGroupId
               }
+              isPublic
             }
           }
         }
-    `;
+      }
+    `
     queryVars = { profileRole: role };
   } else {
     query = '{ profiles { id displayNameLong } }';

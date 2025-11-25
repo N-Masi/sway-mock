@@ -4,6 +4,7 @@ import * as React from 'react';
 import ProfileCard from '../components/ProfileCard';
 import ViewpointGroupStack from '../components/ViewpointGroupStack';
 import { Grid } from '@mui/material';
+import { alignProperty } from '@mui/material/styles/cssUtils';
 
 export type AvatarMedia = {
   id: string,

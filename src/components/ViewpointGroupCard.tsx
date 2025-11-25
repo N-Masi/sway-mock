@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { Card, CardHeader, CardContent } from '@mui/material';
+import { Card, CardHeader, CardContent, CardMedia } from '@mui/material';
 import { ViewpointGroup } from './ViewpointGroupStack';
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Leader } from './Dashboard';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 type ViewpointGroupCardProps = {
     viewpointGroup: ViewpointGroup,
+    selectedLeader: Leader,
 }
 
 export default function ViewpointGroupCard(props: ViewpointGroupCardProps) {
@@ -41,14 +43,23 @@ export default function ViewpointGroupCard(props: ViewpointGroupCardProps) {
         ],
     };
 
+    console.log(props.viewpointGroup.id)
+
     return (
         <Card sx={{
             borderRadius: "25px",
             opacity: 0.9,
         }}>
             <CardHeader
-                title={props.viewpointGroup.title}
+                title={props.viewpointGroup.title || `Vote with ${props.selectedLeader.displayNameShort}`}
             />
+            {props.viewpointGroup.id === "4d627244-5598-4403-8704-979140ae9cac" && (
+                <CardMedia
+                    component="img"
+                    height="194"
+                    image="/Thomas-Massie-3.3.avif"
+                />
+            )}
             <CardContent>
                 <p>Supporters: {props.viewpointGroup.totalUniqueSupporters}</p>
                 <p>Voters: {props.viewpointGroup.totalUniqueVoters}</p>
