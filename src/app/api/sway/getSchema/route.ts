@@ -3,7 +3,7 @@ import { fetchGraphQL } from '../utils';
 
 export async function GET(request: NextRequest) {
 
-  const query = '{ profiles { id displayNameLong } }';
+  const query = 'query Introspection { __schema { types { name fields { name } } } }';
 
   try {
     const data = await fetchGraphQL(process.env.SWAY_API_JWT as string, query);
