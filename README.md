@@ -36,7 +36,7 @@ The product I have built is a dashboard for influencers on Sway. It is important
     **Insight:** The leader's overall amount of distribution of support. **Action:** Where to continue prioritizing their efforts.
 
 4. Out of scope:
-* User login and authentication. To demonstrate the utility of the dashboard, I have made it such that you can select to view the dashboard for any leader in the database.
+* User login and authentication. This assignment asked me to focus on viewpoint group "4d627244-5598-4403-8704-979140ae9cac".
 * Non-hardcoded API access. Dynamically generating JWT tokens and monitoring expiration is downstream of handling logins.
 * Supporter dashboard. Not in the assignment specifications.
 
