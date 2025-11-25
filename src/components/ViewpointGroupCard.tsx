@@ -43,8 +43,6 @@ export default function ViewpointGroupCard(props: ViewpointGroupCardProps) {
         ],
     };
 
-    console.log(props.viewpointGroup.id)
-
     return (
         <Card sx={{
             borderRadius: "25px",

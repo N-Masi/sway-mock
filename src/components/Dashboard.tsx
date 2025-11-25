@@ -4,7 +4,7 @@ import * as React from 'react';
 import ProfileCard from '../components/ProfileCard';
 import ViewpointGroupStack from '../components/ViewpointGroupStack';
 import { Grid } from '@mui/material';
-import { alignProperty } from '@mui/material/styles/cssUtils';
+import Image from 'next/image'
 
 export type AvatarMedia = {
   id: string,
@@ -40,6 +40,14 @@ export default function Dashboard() {
     return (
         <Grid container spacing={2}>
             <Grid size={4}>
+                <div style={{ paddingLeft: '30px', paddingTop: '30px', height: '96px', maxWidth: '275px', minWidth: '175px' }}>
+                    <Image
+                        src="/sway.svg"
+                        width={500}
+                        height={500}
+                        alt="Sway logo"
+                    />
+                </div>
                 <ProfileCard
                     selectedLeader={selectedLeader}
                     setSelectedLeader={setSelectedLeader}
