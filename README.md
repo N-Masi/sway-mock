@@ -1,5 +1,7 @@
 # Mock Dashboard of Sway
 
+![](demo.mov)
+
 ## How to run
 
 1. Clone the repo: `git clone git@github.com:N-Masi/sway-mock.git`
