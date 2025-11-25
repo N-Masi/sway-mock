@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Avatar } from "@mui/material";
-import { Leader } from './ProfileCard';
+import { Leader } from './Dashboard';
 
 type ProfileAvatarProps = {
   selectedLeader: Leader;

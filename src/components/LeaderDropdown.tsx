@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Autocomplete } from "@mui/material";
-import { Leader } from './ProfileCard';
+import { Leader } from './Dashboard';
 
 type LeaderDropdownProps = {
   selectedLeader: Leader,
@@ -45,7 +45,7 @@ export default function LeaderDropdown(props: LeaderDropdownProps) {
       options={props.leaders}
       getOptionLabel={(option) => option.displayNameLong}
       getOptionKey={(option) => option.id}
-      sx={{ width: 220 }}
+      sx={{ maxWidth: 220, minWidth: 140 }}
       renderInput={(params) => <TextField {...params} label="Leader" />}
       disabled={props.loading}
       defaultValue={props.defaultLeader}

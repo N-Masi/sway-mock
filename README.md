@@ -6,27 +6,29 @@
 
 2. Enter the project directory: `cd sway-mock`
 
-3. Create an .env.local file in this directory (`touch .env.local`) and populate with 
+3. Install necessary modules: `npm install`
+
+4. Create an .env.local file in this directory (`touch .env.local`) and populate with a valid JWT token to the SwayPI
 
         SWAY_API_JWT=<valid_jwt_token>
 
-4. Run the app: `npm run dev`
+5. Run the app: `npm run dev`
 
-5. Open the app in the browser: [http://localhost:3000](http://localhost:3000)
+6. Open the app in the browser: [http://localhost:3000](http://localhost:3000)
 
 ## Product Brief
 
-The product I have built is a dashboard for influencers on Sway. It is important for them to track KPIs for all of the *viewpoint groups* where they are a *leader*. As such, the dashboard hierarchy is built with viewpoint groups at the highest level. From there, the leader-user can see the *influence targets* associated with each viewpoint groups. These elections/propositions are the level at which most metrics are tracked. There is also a generic leadership overview dashboard, that tracks summary metrics on the leader.
+The product I have built is a dashboard for influencers on Sway. It is important for them to track KPIs for all of the *viewpoint groups* where they are a *leader*. As such, the dashboard hierarchy is built with viewpoint groups at the highest level.
 
 1. In politics, influence is most clearly exerted in the ability to change an election outcome. In this sense, the network of supporters gains material political power when they reach a critical mass for determining an election. As such, I focus on the number of supporters the leader has in each jurisdiction where there is a influence target.
 
 2. Metrics that matter most:
 
-    a. Number of supporters a leader has in each jurisdiction where there is an influence target for a viewpoint group they lead.
+    a. Number of supporters.
 
-    b. Priorities of supporters. As such, the influence targets within each 
+    b. Number of voters.
 
-    c. Total number of supporters a user has.
+    c. Ratio of voters to supporters.
 
     d. Geographic distribution of support. Heatmap of supporters in US per jurisdiction.
 
@@ -36,13 +38,13 @@ The product I have built is a dashboard for influencers on Sway. It is important
     **Insight:** The leader's overall amount of distribution of support. **Action:** Where to continue prioritizing their efforts.
 
 4. Out of scope:
-* User login and authentication. This assignment asked me to focus on viewpoint group "4d627244-5598-4403-8704-979140ae9cac".
+* User login and authentication. To demonstrate the utility of the site, I have made it such that can you view the dynamically generated dashboard for any leader in the database.
 * Non-hardcoded API access. Dynamically generating JWT tokens and monitoring expiration is downstream of handling logins.
 * Supporter dashboard. Not in the assignment specifications.
 
 ## Design Tradeoffs
 
-* ...
+* Spent so much time building out the infrastructure to select any user (rather than hardcode one) that I had less time to work on visualizations.
 * ...
 * ...
 
@@ -51,16 +53,10 @@ The product I have built is a dashboard for influencers on Sway. It is important
 **Simplifications:** ...
 
 **Assumptions:**
-* Voter turnout will be approximately equal from year to year for the same election. 
+* I couldn't find the answer in the docs, so I am assuming totalUniqueVoters is a subset of totalUniqueSupporters
 
 **Breaks at scale:**
 
 **New capabilities:**
 
 **Build next:**
-
-## Postmortem:
-
-* Time spent on product brief: 30 minutes
-* Time spent on development: X hours
-* Time spent on reflection (future evolution): X minutes
