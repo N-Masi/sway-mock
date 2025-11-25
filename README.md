@@ -1,7 +1,6 @@
 # Mock Dashboard of Sway
 
 ![](demo.mov)
-![](compressed_demo.webm)
 
 ## How to run
 
